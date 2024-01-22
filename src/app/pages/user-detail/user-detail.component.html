@@ -1,0 +1,22 @@
+<div *ngIf="user">
+
+    <div class="rounded p-5 shadow-lg" style="background-color: #28594378">
+    <button mat-mini-fab color="primary" (click)="delete(user)">
+        <mat-icon>delete</mat-icon>
+    </button>
+
+
+    <h1>Dettaglio Utente:</h1>
+    <h2>{{user.name}} {{user.surname}}</h2>
+    <p><span>Età:</span> {{user.age}}</p>
+    <p><span>Nazione:</span> {{user.country}}</p>
+
+    <div style="width: 18rem;">
+        <img class="img-fluid rounded" src="https://i.pinimg.com/564x/d3/e5/9a/d3e59ace9ed55ac52a5c66ea0d4e2cb2.jpg" alt="">
+    </div>
+    
+
+    <p class="mt-3" ><a style="color:#C2185B" href="/">Torna alla home</a></p>
+
+    </div>
+</div>
