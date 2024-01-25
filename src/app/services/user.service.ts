@@ -30,8 +30,13 @@ export class UserService {
     return of(this.users);
   }
 
+  // get(id:number): Observable<User> {
+  //   const user = MOCK_USERS.find(user => user.id === id);
+  //   return user ? of(user) : throwError(`Utente con id ${id} non trovato`);
+  // }
+
   get(id:number): Observable<User> {
-    const user = MOCK_USERS.find(user => user.id === id);
+    const user = this.users.find(user => user.id === id);
     return user ? of(user) : throwError(`Utente con id ${id} non trovato`);
   }
 
@@ -64,7 +69,7 @@ enable(id: number): Observable<void>{
   return throwError("L'id dell'utente non esiste, cancellazione non avvenuta");
  }
 
-private save(users: User[]): User[] {
+private save(users: User[]){
 localStorage.setItem(DEMO_USERS_STORE, JSON.stringify(users));
 return users;
 }

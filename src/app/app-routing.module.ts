@@ -13,25 +13,30 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path:'',
+    path: '',
     component: NavigationComponent,
     canActivate: [AuthenticationGuard],
     children: [
       {
         path: '',
         component: UsersComponent,
-    }, {
-      path: 'user/:id',
-      component: UserDetailComponent
-    } , {
-      path: 'hidden-users',
-      component: HiddenUsersComponent,
-  }, {
-    path: 'hidden-user/:id',
-    component: UserDetailComponent
-  }
-  ]
-  }
+      },
+      {
+        path: 'user/:id',
+        component: UserDetailComponent,
+      },
+      {
+        path: 'hidden-users',
+        component: HiddenUsersComponent,
+        children: [  // Aggiungi questa sezione per i sottopercorsi di 'hidden-users'
+          {
+            path: 'hidden-user/:id',
+            component: UserDetailComponent,
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 @NgModule({

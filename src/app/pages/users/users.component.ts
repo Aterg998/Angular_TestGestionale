@@ -15,6 +15,14 @@ import { TitleService } from '../../services/title.service';
 export class UsersComponent implements OnInit {
   
   users: User[] = [];
+  displayedColumns: string[] = ['image', 'name', 'surname', 'actions'];
+  dataSource = [];
+  posts: any;
+  pageSize: any;
+  page: any;
+  total_pages: any;
+  total: any;
+
 
   constructor(
     private readonly userService: UserService,
@@ -25,11 +33,8 @@ export class UsersComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.titleService.title.next('Utenti')
-    this.userService.getAll()
-    .pipe(
-      map((users: User[]) => this.users = users)
-    ).subscribe();
+    this.titleService.title.next('Lista Utenti')
+    this.getAllUsers();
   }
 
   create(): void {
@@ -41,5 +46,20 @@ export class UsersComponent implements OnInit {
     .subscribe(
       (user : any) => console.log(`User creato: ${user.id}` )
     );
+  }
+
+  getAllUsers(): void{
+    this.users = [];
+    this.userService.getAll()
+      .pipe(
+        map((users: User[]) => {
+          for(let i = 0; i < users.length; i++){
+            if(users[i].attivo){
+              this.users.push(users[i]);
+            }
+          }
+        })
+      )
+      .subscribe();
   }
 }

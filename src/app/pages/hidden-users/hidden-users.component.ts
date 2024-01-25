@@ -15,6 +15,7 @@ import { CreateUserDialogComponent } from '../../components/create-user-dialog/c
 export class HiddenUsersComponent {
 
   users: User[] = [];
+  
   displayedColumns: string[] = ['image', 'name', 'surname', 'actions'];
   dataSource = [];
   pageSize: any;
