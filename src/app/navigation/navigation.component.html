@@ -1,16 +1,24 @@
-    <mat-toolbar class="toolbar">
-        <span class="menu">Lista degli Utenti</span>
+    <mat-toolbar style="background-color: #334565; color: white;">
+        <span class="menu fs-4">{{title}}</span>
         <span class="spacer"></span>
         <button class="menu1" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Main menu">
             <mat-icon>menu</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
             <div class="user-info">
-                <span class="text-white">Ciao<b> {{user}} </b>!</span>
+                <span>Ciao<b> {{user}} </b>!</span>
             </div>
+            <a mat-menu-item (click)="create()">
+                <mat-icon>add</mat-icon>
+                <span>Aggiungi utenti</span>
+            </a>
             <a mat-menu-item routerLink="/">
                 <mat-icon>list</mat-icon>
                 <span>Tutti gli utenti</span>
+            </a>
+            <a mat-menu-item routerLink="/hidden-users">
+                <mat-icon>list</mat-icon>
+                <span>Tutti gli utenti nascosti</span>
             </a>
             <a mat-menu-item routerLink="/login">
                 <mat-icon>logout</mat-icon>

@@ -11,6 +11,9 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { FormsModule } from '@angular/forms';
 import { CreateUserDialogComponent } from './components/create-user-dialog/create-user-dialog.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HiddenUsersComponent } from './pages/hidden-users/hidden-users.component';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -19,17 +22,20 @@ import { LoginComponent } from './pages/login/login.component';
     UsersComponent,
     UserDetailComponent,
     CreateUserDialogComponent,
-    LoginComponent
+    LoginComponent,
+    HiddenUsersComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideNativeDateAdapter()
   ],
   bootstrap: [AppComponent]
 })

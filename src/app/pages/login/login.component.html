@@ -1,11 +1,18 @@
-<div class="page-wrapper">
-    <h2>Login</h2>
-    <form #loginForm="ngForm" (ngSubmit)="login()">
-        <mat-form-field>
-            <mat-label>Username</mat-label>
-            <input matInput [(ngModel)]="username" placeholder="Inserisci un nome" name="username" required>
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit" aria-label="Login"
-            [disabled]="!loginForm.form.valid">Login</button>
-    </form>
-</div>
+    <div class="background-image page-wrapper">
+        <mat-card class="center-card">
+            <mat-card-title class="fs-2 mb-2">Login</mat-card-title>
+            <mat-card-content>
+            <form class="mt-5" #loginForm="ngForm" (ngSubmit)="login()">
+                <p>
+                <mat-form-field>
+                    <input matInput [(ngModel)]="username" placeholder="Username" name="username" required>
+                </mat-form-field>
+                </p>
+            <div class="button">
+                <button mat-raised-button type="submit"
+                    [disabled]="!loginForm.form.valid">Entra</button>
+            </div>
+            </form>
+            </mat-card-content>
+        </mat-card> 
+    </div>

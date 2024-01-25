@@ -1,9 +1,35 @@
-mat-form-field {
-    width: 100%;
-}
 
-.page-wrapper {
-    max-width: 1024px;
-    margin: 0 auto;
-    padding: 1.5em;
-}
+
+  mat-card {
+    height: 20rem;
+    width: 20rem;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-color: #334565;
+    border-style: solid;
+    border-width: 5px;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .button button {
+    background-color: #334565;
+    color: #fff;
+  }
+
+  .page-wrapper {
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://i.pinimg.com/564x/85/dc/23/85dc23d28370fbfdb79a751178265b74.jpg");
+    background-repeat: repeat;
+  }

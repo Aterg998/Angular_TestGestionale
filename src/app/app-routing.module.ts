@@ -5,6 +5,7 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { UsersComponent } from './pages/users/users.component';
 import { LoginComponent } from './pages/login/login.component';
 import { AuthenticationGuard } from './services/guards/authentication.guard';
+import { HiddenUsersComponent } from './pages/hidden-users/hidden-users.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,13 @@ const routes: Routes = [
     }, {
       path: 'user/:id',
       component: UserDetailComponent
-    }
+    } , {
+      path: 'hidden-users',
+      component: HiddenUsersComponent,
+  }, {
+    path: 'hidden-user/:id',
+    component: UserDetailComponent
+  }
   ]
   }
 ];

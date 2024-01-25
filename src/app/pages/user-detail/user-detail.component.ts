@@ -28,24 +28,35 @@ import { TitleService } from '../../services/title.service';
         switchMap(params => this.userService.get(+params['id'])),
         catchError(err => { //se non viene trovato nessun user con id specificato, si torna alla pagina iniziale
           this.router.navigate(['/']);
+          alert(err);
           throw err;
         }),
-        map((user: User) => {
+        map((user:User) => {
           this.user = user;
-          this.titleService.title.next(`Utente ${user}`);
+          this.titleService.title.next(`Utente ${this.user.id}`);
         })
         ).subscribe();
     }
 
-delete(user: User): void {
+delete(user:User):void {
   this.userService.remove(user.id)
-  .subscribe(
-    () => {
+  .subscribe(() => {
       console.log(`${user.name} ${user.surname} rimosso!`);
       this.router.navigate(['/']);
     },
     err => console.log(err)
-  );
+  );}
+
+  goingHome():void {
+    this.router.navigate(['/']);
+}
+
+enable(user:User):void{
+  this.userService.enable(user.id).subscribe(()=>{
+    console.log(`${user.name} ${user.surname} rimosso!`);
+    this.router.navigate(['/']);
+  },
+  err => console.error(err));
 }
 
   //   private getUser(id: number): User | undefined {
