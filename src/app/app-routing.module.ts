@@ -28,12 +28,10 @@ const routes: Routes = [
       {
         path: 'hidden-users',
         component: HiddenUsersComponent,
-        children: [  // Aggiungi questa sezione per i sottopercorsi di 'hidden-users'
-          {
-            path: 'hidden-user/:id',
-            component: UserDetailComponent,
-          },
-        ],
+      },
+      {
+        path: 'hidden-user/:id',
+        component: UserDetailComponent,
       },
     ],
   },
